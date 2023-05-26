@@ -1,12 +1,6 @@
 import React, {useState} from 'react';
-import {
-  View,
-  Image,
-  StyleSheet,
-  useWindowDimensions,
-  ScrollView,
-} from 'react-native';
-import Logo from '../../../assets/images/Logo.svg';
+import {View, StyleSheet, useWindowDimensions, ScrollView} from 'react-native';
+import Logo from '../../../assets/images/Logo.js';
 import CustomInput from '../../components/CustomInput/CustomInput.js';
 import CustomButton from '../../components/CustomButton/CustomButton.js';
 import {useNavigation} from '@react-navigation/native';
@@ -22,6 +16,8 @@ const SingInScrene = () => {
   const onSingInPress = () => {
     console.warn('Logar');
     //validar usuario
+    setUsuario('');
+    setSenha('');
     navigation.navigate('Home');
   };
 
@@ -33,8 +29,7 @@ const SingInScrene = () => {
   return (
     <ScrollView showsVerticalScrollIndicator={false} style={styles.tela}>
       <View style={styles.root}>
-        <Image
-          source={Logo}
+        <Logo
           style={[styles.logo, {height: height * 0.3}]}
           resizeMode="contain"
         />
